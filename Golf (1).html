@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Five Signs Your Venue Is Ready for Self-Pour - PourTek</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #f1f0f0;
+    --paper: #262626;
+    --amber: #278bcb;
+    --amber-light: #278bcb;
+    --rust: #676767;
+    --green: #278bcb;
+    --green-light: #278bcb;
+    --cream: #1e1e1e;
+    --muted: #a0a0a0;
+    --border: #3a3a3a;
+    --dark-panel: #1a1a1a;
+    --highlight: #1e2a35;
+    --golf-green: #1a1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #262626;
+    color: #f1f0f0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  .hero {
+    background: #1a1a1a;
+    color: #f1f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 6vw 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 30%, rgba(200,134,10,0.1) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(45,74,45,0.15) 0%, transparent 60%),
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.025) 39px,
+        rgba(255,255,255,0.025) 40px
+      );
+  }
+
+  .hero-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: var(--amber);
+    margin-bottom: 28px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  .hero h1 {
+    color: #f1f0f0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    position: relative;
+    max-width: 820px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 1.15rem;
+    color: rgba(241,240,240,0.65);
+    max-width: 540px;
+    font-weight: 300;
+    position: relative;
+  }
+
+  .hero-divider {
+    margin: 48px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+  }
+
+  .hero-divider span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: rgba(241,240,240,0.35);
+  }
+
+  .hero-divider::before {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 60px;
+    background: rgba(241,240,240,0.2);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 6vw;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(241,240,240,0.35);
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .scroll-hint::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 50px;
+    background: rgba(241,240,240,0.2);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.2; transform: scaleY(1); }
+    50% { opacity: 0.8; transform: scaleY(1.3); }
+  }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 0 6vw; }
+  .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 6vw; }
+
+  .chapter-break {
+    background: #1a1a1a;
+    color: #f1f0f0;
+    padding: 70px 6vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chapter-break.golf-break {
+    background: var(--golf-green);
+  }
+
+  .chapter-break::after {
+    content: attr(data-num);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18vw;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    right: 3vw;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .chapter-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--amber);
+    margin-bottom: 16px;
+  }
+
+  .chapter-break h2 {
+    color: #f1f0f0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    max-width: 640px;
+    position: relative;
+  }
+
+  .chapter-break h2 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+
+  .prose { padding: 72px 0; }
+  .prose p { margin-bottom: 1.5em; color: #d8d6d6; }
+
+  .prose p:first-child::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 4.5em;
+    font-weight: 900;
+    float: left;
+    line-height: 0.8;
+    margin: 8px 12px 0 0;
+    color: var(--amber);
+  }
+
+  .prose h3 {
+    color: #f1f0f0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 2.5em 0 0.8em;
+    line-height: 1.25;
+  }
+
+  .prose h3 em { font-style: italic; color: var(--rust); }
+
+  .pullquote {
+    border-left: 4px solid var(--amber);
+    padding: 24px 32px;
+    margin: 48px 0;
+    background: var(--cream);
+  }
+
+  .pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: #f1f0f0;
+    line-height: 1.5;
+    margin: 0 !important;
+  }
+
+  .pullquote p::first-letter { all: unset; }
+
+  .pullquote.golf-quote {
+    border-left-color: var(--green-light);
+  }
+
+  .analogy {
+    background: var(--highlight);
+    border: 1px solid rgba(200,134,10,0.25);
+    padding: 28px 32px;
+    margin: 40px 0;
+    border-radius: 2px;
+  }
+
+  .analogy-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+
+  .analogy p {
+    font-size: 0.95rem;
+    margin-bottom: 0 !important;
+    color: #d8d6d6;
+  }
+
+  .analogy p::first-letter { all: unset; }
+
+  /* SIGNAL CARDS */
+  .signal-list {
+    list-style: none;
+    margin: 0;
+    counter-reset: signals;
+  }
+
+  .signal-item {
+    counter-increment: signals;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .signal-item:last-child { border-bottom: none; }
+
+  .signal-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--amber);
+    line-height: 1;
+    padding: 32px 0 32px;
+    opacity: 0.4;
+  }
+
+  .signal-content {
+    padding: 32px 0 32px 24px;
+    border-left: 1px solid var(--border);
+  }
+
+  .signal-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  .signal-content p {
+    font-size: 0.92rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    margin: 0 !important;
+  }
+
+  .signal-content p::first-letter { all: unset; }
+
+  /* ASSESSMENT */
+  .assessment {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    padding: 48px;
+    margin: 48px 0;
+  }
+
+  .assessment h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+
+  .assessment-sub {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 32px;
+  }
+
+  .assessment-q {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 0.95rem;
+    color: #d8d6d6;
+  }
+
+  .assessment-q:last-child { border-bottom: none; }
+
+  .q-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--amber);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  /* GOLF SECTION */
+  .golf-section {
+    background: #1a1a1a;
+    color: #f1f0f0;
+    padding: 80px 6vw;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .golf-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255,255,255,0.015) 30px,
+      rgba(255,255,255,0.015) 31px
+    );
+  }
+
+  .golf-section .container { position: relative; }
+
+  .golf-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: rgba(200,134,10,0.8);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .golf-label::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: rgba(200,134,10,0.6);
+  }
+
+  .golf-section h2 {
+    color: #f1f0f0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    max-width: 680px;
+  }
+
+  .golf-section h2 em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+
+  .golf-section p {
+    color: rgba(241,240,240,0.8);
+    margin-bottom: 1.4em;
+    max-width: 680px;
+  }
+
+  .golf-section p:first-of-type::first-letter { all: unset; }
+
+  .golf-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 2.2em 0 0.7em;
+    color: #f1f0f0;
+  }
+
+  .golf-analogy {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(200,134,10,0.3);
+    padding: 28px 32px;
+    margin: 36px 0;
+  }
+
+  .golf-analogy .analogy-label {
+    color: var(--amber-light);
+  }
+
+  .golf-analogy p {
+    font-size: 0.95rem;
+    color: rgba(241,240,240,0.75) !important;
+    margin-bottom: 0 !important;
+  }
+
+  .golf-pullquote {
+    border-left: 4px solid var(--amber);
+    padding: 24px 32px;
+    margin: 40px 0;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .golf-pullquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(241,240,240,0.9) !important;
+    margin: 0 !important;
+  }
+
+  .golf-checklist {
+    list-style: none;
+    margin: 24px 0;
+  }
+
+  .golf-checklist li {
+    padding: 14px 0 14px 36px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    font-size: 0.95rem;
+    color: rgba(241,240,240,0.8);
+  }
+
+  .golf-checklist li::before {
+    content: '+';
+    position: absolute;
+    left: 0;
+    color: var(--amber-light);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .golf-checklist li:last-child { border-bottom: none; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--amber);
+    color: #f1f0f0;
+    padding: 80px 6vw;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .cta-section p {
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin: 0 auto 36px;
+    color: rgba(241,240,240,0.75);
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--ink);
+    color: #f1f0f0;
+    padding: 16px 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .cta-btn:hover { background: var(--rust); }
+
+  .section-rule { border: none; border-top: 1px solid var(--border); margin: 0; }
+
+  @media (max-width: 600px) {
+    .signal-item { grid-template-columns: 56px 1fr; }
+    .signal-num { font-size: 2.5rem; }
+    .assessment { padding: 32px 24px; }
+    .golf-section { padding: 56px 6vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">Operator Guide - Self-Pour Readiness</div>
+  <h1>Five Signs Your Venue Is <em>Ready</em> for Self-Pour</h1>
+  <p class="hero-sub">A practical guide to reading your own operation honestly - including a deep look at why golf courses may be the most underserved opportunity in self-pour today.</p>
+  <div class="hero-divider">
+    <span>Strong Signals - Readiness Assessment - Golf Course Edition</span>
+  </div>
+  <div class="scroll-hint">SCROLL</div>
+</section>
+
+
+<!-- INTRO -->
+<div class="container">
+  <div class="prose">
+    <p>Most operators who end up loving self-pour technology say the same thing after installation: "I knew before I called. I just needed confirmation." The signals were already there in their Saturday night, their staffing board, their POS reports. This guide is here to help you read those signals clearly.</p>
+
+    <p>Not every venue is the right fit. But if even two or three of the following match what you're living as an operator, the conversation about self-pour is worth having - and sooner rather than later.</p>
+  </div>
+</div>
+
+
+<!-- CHAPTER 1: STRONG SIGNALS -->
+<div class="chapter-break" data-num="01">
+  <div class="chapter-num">Chapter 01</div>
+  <h2>The Strong Signals That <em>Self-Pour Fits Your Venue</em></h2>
+</div>
+
+<div class="container">
+  <div class="prose" style="padding-bottom: 0;">
+    <p>These are the patterns operators describe over and over again - the friction points, the missed revenue, the moments where the current model runs out of bandwidth. Read them against your own experience.</p>
+  </div>
+
+  <ul class="signal-list" style="margin-bottom: 72px;">
+    <li class="signal-item">
+      <div class="signal-num">01</div>
+      <div class="signal-content">
+        <h4>You Lose Visible Revenue During Peak Hours</h4>
+        <p>Lines form at the bar. Guests signal for attention and give up. Tables order one round when they would have ordered three if the experience moved faster. You can feel the ceiling on a busy Friday night. Self-pour removes that ceiling - guests serve themselves at the pace they want, and your revenue follows their appetite rather than your throughput.</p>
+      </div>
+    </li>
+    <li class="signal-item">
+      <div class="signal-num">02</div>
+      <div class="signal-content">
+        <h4>Staffing Is a Recurring Source of Stress, Not a Temporary Problem</h4>
+        <p>If the last 18 months have felt like a constant scramble to cover shifts, train replacements, or operate shorthanded, that's not bad luck - that's the new landscape of hospitality labor. Self-pour doesn't eliminate your team. It makes your team's hours count for more: less time filling glasses, more time building relationships and driving incremental revenue through genuine hospitality.</p>
+      </div>
+    </li>
+    <li class="signal-item">
+      <div class="signal-num">03</div>
+      <div class="signal-content">
+        <h4>Your Venue Has an "Experience" Component Guests Come For</h4>
+        <p>Sports, games, live entertainment, pickleball, trivia, events - anything that gives guests a reason to stay beyond the drink itself. These venues are where self-pour thrives most naturally. Guests are already in a participatory mindset. A tap wall extends that posture into their beverage choice and keeps them in the moment rather than breaking it with a wait.</p>
+      </div>
+    </li>
+    <li class="signal-item">
+      <div class="signal-num">04</div>
+      <div class="signal-content">
+        <h4>Your Average Guest Stay Is 90 Minutes or Longer</h4>
+        <p>Longer dwell time means more consumption potential - but only if the ordering experience keeps pace with the visit. A guest settled in for a full evening, a game, or an event will naturally drink more when the friction between "I want another" and "I have another" is removed. Self-pour is purpose-built for the long-stay venue.</p>
+      </div>
+    </li>
+    <li class="signal-item">
+      <div class="signal-num">05</div>
+      <div class="signal-content">
+        <h4>Your Market Has a Strong Craft or Variety Culture</h4>
+        <p>When guests care about what they're drinking - not just that they're drinking - self-pour becomes an experience multiplier. The ability to try a 2-ounce pour of something unfamiliar before committing is a discovery mechanism that traditional service can't replicate at scale. Curious guests stay longer, spend more, and come back to explore what they haven't tried yet.</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+<!-- CHAPTER 2: ASSESSMENT -->
+<div class="chapter-break" data-num="02">
+  <div class="chapter-num">Chapter 02</div>
+  <h2>Your Self-Pour <em>Readiness Assessment</em></h2>
+</div>
+
+<div class="container">
+  <div class="prose">
+    <p>These questions aren't designed to produce a score. They're designed to surface what you already know about your own operation. Answer them honestly - not as you wish things were, but as your last three Saturdays actually felt.</p>
+
+    <div class="assessment">
+      <h3>Readiness Assessment</h3>
+      <p class="assessment-sub">Seven questions. No right answer. Just clarity.</p>
+
+      <div class="assessment-q">
+        <span class="q-num">01</span>
+        <span>In the last 90 days, have you lost visible revenue to long wait times or staffing gaps during peak hours?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">02</span>
+        <span>If you removed the service bottleneck entirely, would your average guest spend more per visit?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">03</span>
+        <span>Does your venue attract guests looking for a destination experience rather than a quick transaction?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">04</span>
+        <span>Have competitors in your market adopted interactive or eatertainment elements that are pulling foot traffic away from you?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">05</span>
+        <span>Would your team be more valuable focused on hospitality and upselling than on high-volume pours?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">06</span>
+        <span>Is your beverage program built around variety - multiple styles, brands, or ABV levels that guests would benefit from exploring?</span>
+      </div>
+      <div class="assessment-q">
+        <span class="q-num">07</span>
+        <span>Three years from now, do you want to be the venue that moved first, or the one that watched others do it?</span>
+      </div>
+    </div>
+
+    <div class="analogy">
+      <div class="analogy-label">Analogy</div>
+      <p>Answering these questions is like reading the weather before a round of golf. You don't need certainty to make a decision - you need enough signal to act intelligently. Two or three strong "yes" answers here isn't a mild signal. It's a green light worth exploring.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- GOLF SECTION -->
+<div class="golf-section">
+  <div class="container">
+    <div class="golf-label">Venue Spotlight - Golf Courses</div>
+    <h2>The Most Underserved Opportunity in Self-Pour May Be <em>Right on the Course</em></h2>
+
+    <p>Golf courses occupy a fascinating position in the self-pour conversation. They have everything that makes self-pour work - long dwell times, captive audiences, a culture of social spending, and beverage service that has been structurally constrained for decades. And yet they have been largely overlooked by the industry.</p>
+
+    <p>That is changing. And the courses that move first are going to set the experience standard for everyone else in their market.</p>
+
+    <h3>Why Golf Courses Are a Natural Fit</h3>
+
+    <div class="golf-checklist">
+      <li>A round of golf is 4+ hours. That is dwell time that almost no other venue category can match - and it is almost entirely untapped from a beverage revenue standpoint.</li>
+      <li>PourTek offers both a self-pour beverage cart and a portable kiosk option - purpose-built for the fairway, the turn, and anywhere traditional service falls short. No construction, no fixed infrastructure required. The cart moves with the round. The kiosk anchors at the turn or clubhouse entry.</li>
+      <li>Golf culture is built around trying new things together. A flight of craft pours from a mobile unit at the turn fits the social dynamic of a round better than a cart attendant who may or may not appear on hole 9.</li>
+      <li>Staffing a beverage cart reliably is one of the most persistent pain points in course operations. A mobile self-pour unit puts beverage service in the hands of the guest - and removes the staffing dependency entirely.</li>
+      <li>Golf courses increasingly compete on the full experience, not just the round. A mobile self-pour unit is a differentiator that shows up in reviews, member conversations, and event bookings.</li>
+    </div>
+
+    <div class="golf-analogy">
+      <div class="analogy-label">Analogy</div>
+      <p>Think of the beverage cart on a hot Saturday afternoon. The experience depends entirely on when it shows up and who is driving it. PourTek's self-pour cart is always stocked and always consistent - without the scheduling headache. And where a cart cannot reach, the kiosk holds position at the turn or the clubhouse entry, giving golfers a self-serve option that does not depend on a staff member being in the right place at the right time.</p>
+    </div>
+
+    <h3>The Member Experience Argument</h3>
+
+    <p>Private and semi-private courses live and die by member satisfaction and retention. A self-pour cart on the course and a kiosk at the turn signals something specific: this club is investing in your experience at every point in the round, not just at the 19th. It creates a reason to stay longer, spend more, and tell other members what they missed on the back nine.</p>
+
+    <div class="golf-pullquote">
+      <p>The course that puts cold, self-served craft beverages in a golfer's hands at the turn - without a wait, without a cart schedule - is the one members brag about. That kind of detail is what drives referrals that no advertising budget can replicate.</p>
+    </div>
+
+    <h3>Public and Resort Courses Have an Even Stronger Case</h3>
+
+    <p>For public-facing and resort courses, the argument is even sharper. Guests are already paying a premium to be there. They are in a celebratory mindset. They have time. A self-pour cart on the course and a kiosk at the turn gives them a consistent, novel beverage experience that does not depend on a single staff member showing up at the right hole at the right moment.</p>
+
+    <div class="golf-analogy">
+      <div class="analogy-label">Analogy</div>
+      <p>A mobile self-pour unit on a golf course works like a well-positioned water station in a marathon. The runners know it is coming, they plan around it, and its reliability becomes part of what makes the event feel well-run and worth recommending. Remove it and nobody says anything. Add it and it becomes part of the story people tell.</p>
+    </div>
+
+    <h3>What the Conversation Looks Like</h3>
+
+    <p>Most course operators assume self-pour means tearing up the clubhouse or committing to a major installation. For golf, that is not the starting point. The starting point is a self-pour cart, a kiosk at the turn, or both - low footprint, high impact, no construction required. You learn what your members respond to, you see the revenue data, and you make the next decision from a position of information rather than speculation.</p>
+
+    <p>The conversation worth having is specific to your course: your layout, your member profile, your current beverage revenue per round, and where the gaps are on the course. That is a 30-minute call, not a capital committee presentation.</p>
+  </div>
+</div>
+
+
+<!-- CLOSING -->
+<div class="container">
+  <div class="prose">
+    <h3>What All of This Points To</h3>
+
+    <p>Whether you are running a sports bar, an eatertainment venue, a taproom, or a golf course, the signals that self-pour is a fit are the same: volume pressure your team cannot absorb, guests who want to participate rather than wait, and a beverage program worth exploring. The venues that fit this description are not rare. They're everywhere.</p>
+
+    <div class="pullquote">
+      <p>The operators who act on these signals don't regret it. The ones who wait tend to wish they'd moved when the opportunity was still early in their market.</p>
+    </div>
+
+    <p>If you recognized your venue in any part of this guide, that recognition is the signal. The next step is a conversation.</p>
+  </div>
+</div>
+
+<hr class="section-rule">
+
+<div style="background: var(--cream); border-top: 1px solid var(--border); padding: 24px 6vw; text-align: center;">
+  <p style="font-size: 0.78rem; color: #a0a0a0; font-style: italic; margin: 0;">Statistics and market data sourced from the National Restaurant Association 2023 Operator Survey and self-pour industry deployment research.</p>
+</div>
+
+<div class="cta-section">
+  <h2>Recognized Your Venue<br>in These Pages?</h2>
+  <p>Let's spend 30 minutes talking through what self-pour looks like in your specific space. No pressure, no pitch - just clarity.</p>
+  <a href="/cdn-cgi/l/email-protection#b9d8ddcbd0d8d7f9c9d6cccbcddcd297dad6d486caccdbd3dcdacd84eadcd5df94e9d6cccb9c8b89fad6d7caccd5cdd8cdd0d6d79c8b8
